@@ -21,9 +21,13 @@ spec:
         imagePullPolicy: Always
         name: java-goof
         securityContext:
+          allowPrivilegeEscalation: false
           runAsNonRoot: true
           runAsUser: 65534 #nobody
           runAsGroup: 65534 #nobody
+          capabilities:
+            drop:
+              - ALL
       restartPolicy: Always
 ---
 apiVersion: v1
